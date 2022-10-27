@@ -8,9 +8,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 $branco:white;
 $bg-color:#232323;
-$btn-amarelo:#F9EF9F59;
+$btn-amarelo:#f9ee9fac;
 $btn-amarelo-pp:#D8C200;
 $modal-degrade: linear-gradiente($btn-amarelo-pp,$btn-amarelo);
 

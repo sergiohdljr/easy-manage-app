@@ -1,6 +1,7 @@
 import "./primeirosPassos.scss";
 import BtnPrimeirosPassos from "../../componentes/btnPrimeirosPassos/btnPrimeirosPassos";
 import figure from "../../assets/ilustração.png";
+import { Link } from "react-router-dom";
 
 const PrimeirosPassos = () => {
   return (
@@ -13,7 +14,9 @@ const PrimeirosPassos = () => {
           <h1>Primeiros Passos</h1>
         </div>
         <div className="btnWrapper">
-          <BtnPrimeirosPassos texto={"Cadastre-se com E-mail"} />
+          <Link to= '/cadastro'>
+            <BtnPrimeirosPassos texto={"Cadastre-se com E-mail"} />
+          </Link>
           <BtnPrimeirosPassos texto={"Cadastre-se com Telefone"} />
         </div>
       </main>
@@ -21,4 +24,4 @@ const PrimeirosPassos = () => {
   );
 };
 
-export default PrimeirosPassos;
+export default PrimeirosPassos; 
