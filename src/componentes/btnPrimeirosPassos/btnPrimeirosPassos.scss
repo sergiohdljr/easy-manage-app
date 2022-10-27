@@ -1,0 +1,15 @@
+@import '/src/App.scss';
+
+.btnPrimeirosPassos{
+    width: 295px;
+    height: 40px;
+    border-radius:1.5rem;
+    color: $branco;
+    background-color: $btn-amarelo-pp;
+    border: none;
+    outline: none;
+
+    :hover{
+        opacity: 80%;
+    }
+}
