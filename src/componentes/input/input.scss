@@ -1,0 +1,19 @@
+@import "../../App.scss";
+
+.input {
+    width: 100%;
+    border: 1px $btn-amarelo-pp solid;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .input-field {
+        height: 100%;
+        outline: none;
+        width: 100%;
+        background-color: transparent;
+        color:$btn-amarelo-pp;
+    }
+}

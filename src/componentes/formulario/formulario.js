@@ -1,19 +1,34 @@
 import "./formulario.scss";
-// import icons from FontAwesomeIcon ;
+import "../botaoInicio/botaoInicio.scss"
+import emailIcon from "../../assets/email-icon.png";
+import nomeicon from "../../assets/agenda-icon.png";
+import talher from "../../assets/talher-icon.png"
+import Input from "../input/input";
+import BtnPrimeirosPassos from "../btnPrimeirosPassos/btnPrimeirosPassos";
+
 
 const Formulario = () => {
   return (
     <form>
-      <input className="input-field" type="text" placeholder="E-mail" />
-      <input className="input-field" type="text" placeholder="Nome Completo" />
-      <input
-        className="input-field"
-        type="text"
-        placeholder="Nome da Empresa"
-      />
-      <button type="submit" className="btn-submit">
-        cadastrar
-      </button>
+      <Input
+        icon={emailIcon}
+        placeholder="E-mail"
+        tipo="email" />
+      <Input
+        icon={nomeicon}
+        placeholder="Nome Completo"
+        tipo="text" />
+      <Input
+        icon={talher}
+        placeholder="Nome do restaurante"
+        tipo="text"/>
+      <div className="termos">
+        <input type="checkbox" name="termos" id="termos" />
+        <label htmlFor="termos">
+          li e aceito os <b>termos de uso.</b>
+        </label>
+      </div>
+      <BtnPrimeirosPassos texto="Registrar" />
     </form>
   );
 };

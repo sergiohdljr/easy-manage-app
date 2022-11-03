@@ -16,7 +16,7 @@ const Inicio = ()=>{
         <section className="bem-vindo">
           <h1>Bem vindo!👋</h1>
           <Link to="/primeirosPassos">
-            <BtnInicial texto="Cadastre-se" />
+            <BtnInicial btnclass="btnInicial" texto="Cadastre-se"/>
           </Link>
         </section>
       </main>

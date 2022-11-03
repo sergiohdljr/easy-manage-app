@@ -20,3 +20,9 @@
      opacity: 85%;   
     }
 }
+
+.btnCadastro{
+    @extend .btnInicial;
+    background-color: $btn-amarelo-pp;
+    align-self: center;
+}
