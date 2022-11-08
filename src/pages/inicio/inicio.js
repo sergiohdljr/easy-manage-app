@@ -15,7 +15,7 @@ const Inicio = ()=>{
         </figure>
         <section className="bem-vindo">
           <h1>Bem vindo!👋</h1>
-          <Link to="/primeirosPassos">
+          <Link to="/cadastro">
             <BtnInicial btnclass="btnInicial" texto="Cadastre-se"/>
           </Link>
         </section>
