@@ -36,6 +36,10 @@ form{
                 background-color: transparent;
                 color: $btn-amarelo-pp;
             }
+            ::placeholder{
+                color: $btn-amarelo-pp;
+                opacity: 50%;
+            }
         }
     label{
         font-size: 0.8rem;

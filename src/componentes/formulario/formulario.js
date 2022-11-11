@@ -1,24 +1,26 @@
 import "./formulario.scss";
-import "../botaoInicio/botaoInicio.scss"
+import "../botaoInicio/botaoInicio.scss";
 import emailIcon from "../../assets/email-icon.png";
 import nomeicon from "../../assets/agenda-icon.png";
-import talher from "../../assets/talher-icon.png"
+import talher from "../../assets/talher-icon.png";
 import BtnPrimeirosPassos from "../btnPrimeirosPassos/btnPrimeirosPassos";
-// import { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const Formulario = ({dataUsuario,SetDataUsuario}) => {
 
-const {register,handleSubmit} = useForm();
-// const [dataUsuario,SetDataUsuario] = useState('');
+const Formulario = () => {
+  const { register, handleSubmit } = useForm();
+  const [dataUsuario, SetDataUsuario] = useState("");
 
-const onSubmit = (dataUsuario) =>{ return SetDataUsuario(dataUsuario)};
+  const onSubmit = (dataUsuario) => {
+    return SetDataUsuario(dataUsuario);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input">
-        <img src={nomeicon} alt="" srcSet=""/>
+        <img src={nomeicon} alt="" srcSet="" />
         <input
           className="input-field"
           type="text"
@@ -51,7 +53,9 @@ const onSubmit = (dataUsuario) =>{ return SetDataUsuario(dataUsuario)};
         </label>
       </div>
       <Link to="/home">
-        <BtnPrimeirosPassos tipo={"submit"} texto="Registrar" />
+        <BtnPrimeirosPassos
+          texto="Registrar"
+        />
       </Link>
     </form>
   );

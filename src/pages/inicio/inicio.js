@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Inicio = ()=>{
     return (
       <main className="inicio">
-        <figure className="logo">
+        <figure className="logo animate__fadeInDown">
           <img src="./logo.png" alt="logo" />
-          <h2>
+          <h2 className="animate__fadeInDown">
             Easy
             <br />
             Manage
@@ -16,7 +16,7 @@ const Inicio = ()=>{
         <section className="bem-vindo">
           <h1>Bem vindo!👋</h1>
           <Link to="/cadastro">
-            <BtnInicial btnclass="btnInicial" texto="Cadastre-se"/>
+            <BtnInicial btnclass="btnInicial" texto="Cadastre-se" />
           </Link>
         </section>
       </main>

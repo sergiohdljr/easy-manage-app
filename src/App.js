@@ -1,4 +1,3 @@
-
 import {BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import "./App.scss";
 import Inicio from "./pages/inicio/inicio";
@@ -10,8 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/home" element={<Home />}/>
+        <Route path="/cadastro" element={<Cadastro/>} />
+        <Route path="/home" element={<Home/>}/>
       </Routes>
     </Router>
   );
