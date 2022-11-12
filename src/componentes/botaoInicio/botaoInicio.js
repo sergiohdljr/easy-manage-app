@@ -1,6 +1,6 @@
 import './botaoInicio.scss'
 
-const BtnInicial = ({texto,btnclass}) => {
+const BtnInicial = ({texto,btnclass }) => {
     return (
     <button  className={btnclass} >{texto}</button>
     );

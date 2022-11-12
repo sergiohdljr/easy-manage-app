@@ -6,15 +6,19 @@ import talher from "../../assets/talher-icon.png";
 import BtnPrimeirosPassos from "../btnPrimeirosPassos/btnPrimeirosPassos";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"; 
 
 const Formulario = () => {
   const { register, handleSubmit } = useForm();
   const [dataUsuario, SetDataUsuario] = useState("");
+  const navigate = useNavigate()
 
   const onSubmit = (dataUsuario) => {
-    return SetDataUsuario(dataUsuario);
+    SetDataUsuario(dataUsuario);
+    localStorage.setItem("dataUser", JSON.stringify(dataUsuario))
+    navigate("/home", {replace:true})
   };
 
   return (
@@ -52,10 +56,9 @@ const Formulario = () => {
           li e aceito os <b>termos de uso.</b>
         </label>
       </div>
-      <Link to="/home">
+      <Link to='/home'>
         <BtnPrimeirosPassos
-          texto="Registrar"
-        />
+          texto="Registrar"/>
       </Link>
     </form>
   );

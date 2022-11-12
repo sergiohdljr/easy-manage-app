@@ -1,23 +1,30 @@
-import BtnInicial from '../../componentes/botaoInicio/botaoInicio';
+import { useNavigate } from 'react-router-dom';
+import '../../componentes/botaoInicio/botaoInicio.scss';
 import './inicio.scss'
-import { Link } from 'react-router-dom';
 
 const Inicio = ()=>{
+  const dados = localStorage.getItem("dataUser");
+  const user = JSON.parse(dados);
+  const navigate = useNavigate();
     return (
       <main className="inicio">
         <figure className="logo animate__fadeInDown">
           <img src="./logo.png" alt="logo" />
-          <h2 className="animate__fadeInDown">
+          <h2>
             Easy
-            <br />
+            <br/>
             Manage
           </h2>
         </figure>
         <section className="bem-vindo">
           <h1>Bem vindo!👋</h1>
-          <Link to="/cadastro">
-            <BtnInicial btnclass="btnInicial" texto="Cadastre-se" />
-          </Link>
+            <button className='btnInicial' onClick={()=>{
+              if(user == null){
+                navigate('/cadastro')
+              }else{
+                navigate('/home')
+              }
+            }}>iniciar</button>
         </section>
       </main>
     );

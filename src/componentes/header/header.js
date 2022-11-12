@@ -2,13 +2,15 @@ import './header.scss'
 import logoEm from '../../assets/app-logo.svg'
 
 const Header = () => {
+  const dados = localStorage.getItem("dataUser")
+  const user = JSON.parse(dados);
   return (
     <div className="header">
       <img src={logoEm} alt="" className="logo" />
       <div className="user">
-        <h3>Bem vindo de volta!</h3>
+        <span>Bem vindo de volta!</span>
         <h2>
-          <b>nome</b>
+          <b>{user.nome}</b>
         </h2>
       </div>
     </div>
