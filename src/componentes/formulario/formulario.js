@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import React from "react"
-import { Link } from "react-router-dom"; 
+
 
 const Formulario = () => {
   const { register, handleSubmit } = useForm();
@@ -56,10 +56,7 @@ const Formulario = () => {
           li e aceito os <b>termos de uso.</b>
         </label>
       </div>
-      <Link to='/home'>
-        <BtnPrimeirosPassos
-          texto="Registrar"/>
-      </Link>
+        <BtnPrimeirosPassos texto="Registrar"/>
     </form>
   );
 };
