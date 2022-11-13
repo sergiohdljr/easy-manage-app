@@ -3,6 +3,7 @@ import "./home.scss";
 import MenuBotton from "../../componentes/menuBotton/menu";
 import { useState } from "react";
 
+
 const Home = () => {
   return (
     <div className="home">
@@ -22,14 +23,13 @@ const Modal = () => {
         type="button"
         className="btnCadastro"
         onClick={() => {setActiveModal(true)}}> Adicionar </button>
-        <h4>resumo dos gastos</h4>
+      <h4>resumo dos gastos</h4>
       {modal && (
-        <div className="modal">
-          <div className="modal-content">
-            <button onClick={() => {setActiveModal(false)}}> x </button>
-          </div>
-        </div>
-      )}
+          <div className="modal">
+            <div className="modal-content">
+              <button onClick={() => {setActiveModal(false)}}> x </button>
+            </div>
+          </div>)}
     </>
   );
 };
