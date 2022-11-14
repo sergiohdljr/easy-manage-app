@@ -19,13 +19,23 @@ const Header = () => {
       {HandleMenu && (
         <div className="sideMenu">
           <button onClick={() => setMenu(false)}> X </button>
+          <div className="avatar">
+            <figure>
+              <img src={avatar} alt="" />
+            </figure>
+            <article>
+              <h2>{user.nome}</h2>
+              <h3>{user.restaurante}</h3>
+            </article>
+            <hr />
+          </div>
         </div>
       )}
       <div className="header">
         <img src={logo} alt=""/>
         <div className="user">
           <figure>
-            <img src={avatar} alt="" />
+            <img src={avatar} alt=""/>
           </figure>
           <article>
             <span>Bem vindo de volta!</span>
