@@ -30,7 +30,7 @@
     .modal-content{
         background-image:$modal-degrade;
         width: 100%;
-        height: 75%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         border-radius: 1rem;
@@ -47,6 +47,51 @@
             width: 2rem;
             height: 2rem;
             font-size: 1.5rem;
-        }       
+        }    
+        
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem;
+            color:$input-color;
+
+            button{
+                align-self: flex-start;
+                background-color: $input-color;
+                width: 240px;
+                height: 35px;
+                border-radius: 1rem;
+                color: $btn-amarelo-pp;
+                background-color: $input-color;
+                margin-top: 1.5rem;
+                font-size: small;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+
+            label{
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+
+                span{
+                    font-size: 0.8rem;
+                    color: $input-color;
+                }
+                
+                input{
+                    outline: none;
+                    border: none;
+                    background-color: $input-color;
+                    color: $btn-amarelo-pp;
+                    padding: 0.5rem;
+                    border-radius: 1rem;
+                }
+            }
+        }
     }
-}
+    }
+    

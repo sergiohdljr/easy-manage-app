@@ -1,13 +1,10 @@
 import './header.scss'
-import logoEm from '../../assets/app-logo.svg'
 import avatar from '../../assets/avatar.svg'
 import menu from '../../assets/menu.svg'
 import { useState } from 'react';
 import logo from "../../assets/app-logo.svg";
 
-// fazer menu hamburguer header 
-
-
+ 
 const Header = () => {
   const [HandleMenu, setMenu] = useState(false);
   
