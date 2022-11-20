@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 
-// criar pagina historico
 
 const supabaseUrl = "https://edstsctbxkkfbvjuplac.supabase.co";
 const supabaseKey =
@@ -30,7 +29,9 @@ const Historico = () => {
           <EasyManageLogo titulo="Histórico"/>
           <div className="containerProdutos">
             {dataProdutos.map((produto)=>{
-                return <Produto key={produto.id} produto= {produto.produto} preco = {produto.preco} />
+                return <Produto key={produto.id}
+                                produto= {produto.produto}
+                                preco = {produto.preco} />
             })}
           </div>
           <MenuBotton/>  

@@ -22,7 +22,7 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 const Modal = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [modal, setActiveModal] = useState(false);
   const [produtos,setProdutos] = useState('');
 
@@ -42,7 +42,8 @@ const Modal = () => {
       .catch((err) => {
         console.log(err);
       });
-
+      
+      reset()
       setActiveModal(false)
   }
 
