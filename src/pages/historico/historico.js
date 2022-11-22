@@ -1,21 +1,16 @@
 import MenuBotton from "../../componentes/menuBotton/menu";
 import "./historico.scss";
 import logoApp from "../../assets/app-logo.svg";
-import seta from "../../assets/seta-historico.svg";
-import { createClient } from "@supabase/supabase-js";
+import seta from "../../assets/seta-historico.svg"
 import { useState } from "react";
 import { useEffect } from "react";
-
-const supabaseUrl = "https://edstsctbxkkfbvjuplac.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkc3RzY3RieGtrZmJ2anVwbGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg3NzYxNzUsImV4cCI6MTk4NDM1MjE3NX0.w5_UoGsM0qfxo75opLPEtcturyg3MNxyJMdDOlIhs44";
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { produtosService } from "../../service/service";
 
 const Historico = () => {
   const [dataProdutos, setDataProdutos] = useState([]);
 
   useEffect(() => {
-    supabase
+    produtosService()
       .from("Produtos")
       .select("*")
       .then((produto) => setDataProdutos(produto.data));
@@ -46,8 +41,8 @@ export const EasyManageLogo = ({ titulo }) => {
       <img src={logoApp} alt="" srcSet="" />
       <h2>{titulo}</h2>
     </div>
-  );
-};
+  )
+}
 
 export const Produto = ({ produto, preco }) => {
   return (
@@ -57,7 +52,7 @@ export const Produto = ({ produto, preco }) => {
       </figure>
       <div className="infos">
         <h4>{produto}</h4>
-        <h4>R$ {preco}</h4>
+        <h4>R${preco}</h4>
       </div>
     </div>
   );

@@ -3,7 +3,9 @@ import "./home.scss";
 import MenuBotton from "../../componentes/menuBotton/menu";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { createClient } from "@supabase/supabase-js";
+import { produtosService } from "../../service/service";
+import { CardRelatorios } from "./cardRelatorios";
+
 
 
 const Home = () => {
@@ -12,14 +14,11 @@ const Home = () => {
       <MenuBotton></MenuBotton>
       <Header />
       <Modal></Modal>
+      <CardRelatorios></CardRelatorios>
     </div>
   );
 };
 
-const supabaseUrl = 'https://edstsctbxkkfbvjuplac.supabase.co'
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkc3RzY3RieGtrZmJ2anVwbGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg3NzYxNzUsImV4cCI6MTk4NDM1MjE3NX0.w5_UoGsM0qfxo75opLPEtcturyg3MNxyJMdDOlIhs44";
-const supabase = createClient(supabaseUrl, supabaseKey)
 
 const Modal = () => {
   const { register, handleSubmit,reset } = useForm();
@@ -29,7 +28,7 @@ const Modal = () => {
 
   const onSubmit = (produtos) => {
     setProdutos(produtos)
-    supabase
+    produtosService()
       .from("Produtos")
       .insert({
         produto: produtos.nome,
@@ -37,8 +36,8 @@ const Modal = () => {
         tipo: produtos.tipo,
         preco:produtos.preco,
       })
-      .then((oqueveio) => {
-        console.log(oqueveio);
+      .then((status) => {
+        console.log(status);
       })
       .catch((err) => {
         console.log(err);
@@ -74,7 +73,11 @@ const Modal = () => {
               <h3>Registre um novo produto</h3>
               <label htmlFor="nome">
                 <span>Nome do produto: </span>
-                <input {...register("nome")} type="text" placeholder="nome do produto" />
+                <input
+                  {...register("nome")}
+                  type="text"
+                  placeholder="nome do produto"
+                />
               </label>
               <label htmlFor="quantidade">
                 <span>Quantidade: </span>
@@ -84,13 +87,14 @@ const Modal = () => {
                   placeholder="quantidade em KG"
                 />
               </label>
-              <label htmlFor="tipo">
-                <span>Tipo de produto:</span>
-                <input {...register("tipo")} type="text" placeholder="tipo de produto"/>
-              </label>
               <label htmlFor="preco">
                 <span>Preço do produto: </span>
-                <input {...register("preco")} type="number" step=".02" placeholder="Preço do produto"/>
+                <input
+                  {...register("preco")}
+                  type="number"
+                  step=".02"
+                  placeholder="Preço do produto"
+                />
               </label>
               <button type="submit">Registrar</button>
             </form>
