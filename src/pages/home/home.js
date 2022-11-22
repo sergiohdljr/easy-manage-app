@@ -25,6 +25,7 @@ const Modal = () => {
   const { register, handleSubmit,reset } = useForm();
   const [modal, setActiveModal] = useState(false);
   const [produtos,setProdutos] = useState('');
+  
 
   const onSubmit = (produtos) => {
     setProdutos(produtos)
