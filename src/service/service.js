@@ -6,5 +6,5 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export function produtosService() {
-  return supabase
+  return supabase.from("Produtos")
 }

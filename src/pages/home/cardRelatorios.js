@@ -8,7 +8,6 @@ export const CardRelatorios = () => {
 
   useEffect(() => {
     produtosService()
-      .from("Produtos")
       .select("*")
       .then((dados) => setDados(dados.data));
   }, []);

@@ -12,7 +12,6 @@ const Configuracao = () =>{
 
   const deleteDados = async ()=>{
     const { error } = await supabase
-    .from("Produtos")
     .delete()
     .neq("id", 0);
 

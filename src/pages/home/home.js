@@ -29,7 +29,6 @@ const Modal = () => {
   const onSubmit = (produtos) => {
     setProdutos(produtos)
     produtosService()
-      .from("Produtos")
       .insert({
         produto: produtos.nome,
         quantidade: produtos.quantidade,
@@ -63,10 +62,7 @@ const Modal = () => {
         <div className="modal">
           <div className="modal-content">
             <button
-              onClick={() => {
-                setActiveModal(false);
-              }}
-            >
+              onClick={() => {setActiveModal(false)}}>
               x
             </button>
             <form onSubmit={handleSubmit(onSubmit)}>
