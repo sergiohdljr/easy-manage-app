@@ -15,7 +15,17 @@ const Header = () => {
     <>
       {HandleMenu && (
         <div className="sideMenu">
-          <button onClick={() => setMenu(false)}> X </button>
+          <button onClick={() =>{ 
+            setTimeout(()=>{
+              setMenu(false);
+            },500)}}>
+            <lord-icon
+              src="https://cdn.lordicon.com/nhfyhmlt.json"
+              trigger="hover"
+              colors="primary:#000000"
+              style={{ width: "32px", height: "32px" }}
+            ></lord-icon>
+          </button>
           <div className="avatar">
             <figure>
               <img src={avatar} alt="" />
@@ -29,10 +39,10 @@ const Header = () => {
         </div>
       )}
       <div className="header">
-        <img src={logo} alt=""/>
+        <img src={logo} alt="" />
         <div className="user">
           <figure>
-            <img src={avatar} alt=""/>
+            <img src={avatar} alt="" />
           </figure>
           <article>
             <span>Bem vindo de volta!</span>

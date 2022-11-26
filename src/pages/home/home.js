@@ -44,6 +44,11 @@ const Modal = () => {
       
       reset()
       setActiveModal(false)
+
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 500);
+      
   }
 
   return (
@@ -55,15 +60,25 @@ const Modal = () => {
           setActiveModal(true);
         }}
       >
-        Adicionar
+        Adicionar produto
       </button>
       <h4>resumo dos gastos</h4>
       {modal && (
         <div className="modal">
           <div className="modal-content">
             <button
-              onClick={() => {setActiveModal(false)}}>
-              x
+              onClick={() => {
+                setTimeout(()=>{
+                  setActiveModal(false);
+                },400)
+              }}
+            >
+              <lord-icon
+                src="https://cdn.lordicon.com/nhfyhmlt.json"
+                trigger="hover"
+                colors="primary:#000000"
+                style={{width:"32px",height:"32px"}}
+              ></lord-icon>
             </button>
             <form onSubmit={handleSubmit(onSubmit)}>
               <h3>Registre um novo produto</h3>

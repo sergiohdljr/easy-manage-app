@@ -34,7 +34,7 @@
 }
 
 .produto{
-    width: 100%;
+    width: 95%;
     height: 75px;
     border: 2px $btn-amarelo-pp solid;
     border-radius: 1rem;
@@ -84,4 +84,19 @@
         }
     }
    
+}
+
+.noData{
+    width: 100%;
+    height: 100%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    figure{
+        width: 70%;
+        height: 60%;
+        display: flex;
+        margin: 0;
+    }
 }

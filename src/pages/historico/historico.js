@@ -2,9 +2,11 @@ import MenuBotton from "../../componentes/menuBotton/menu";
 import "./historico.scss";
 import logoApp from "../../assets/app-logo.svg";
 import seta from "../../assets/seta-historico.svg";
+import nodata from "../../assets/no-data.svg"
 import { useState } from "react";
 import { useEffect } from "react";
 import { produtosService } from "../../service/service";
+
 
 const Historico = () => {
   const [dataProdutos, setDataProdutos] = useState([]);
@@ -15,11 +17,12 @@ const Historico = () => {
       .then((produto) => setDataProdutos(produto.data));
   }, []);
 
-  return (
-    <div className="historico">
-      <EasyManageLogo titulo="Histórico" />
-      <div className="containerProdutos">
-        {dataProdutos.map((produto) => {
+     return (
+      <div className="historico">
+        <EasyManageLogo titulo="Histórico" />
+        <div className="containerProdutos">
+          {dataProdutos.length === 0 && <NoData></NoData>}
+          {dataProdutos.map((produto) => {
           return (
             <Produto
               key={produto.id}
@@ -29,11 +32,22 @@ const Historico = () => {
             />
           );
         })}
+        </div>
+        <MenuBotton />
       </div>
-      <MenuBotton />
+    );
+  };
+
+export const NoData = ()=>{
+  return(
+    <div className="noData">
+      <figure>
+        <img src={nodata} alt="" />
+      </figure>
     </div>
-  );
-};
+  )
+}
+    
 
 export const EasyManageLogo = ({ titulo }) => {
   return (
@@ -46,14 +60,18 @@ export const EasyManageLogo = ({ titulo }) => {
 
 // filtrar produtos
 
-export const Produto = ({ produto, preco, id }) => {
+export const Produto = ({ produto, preco,id }) => {
 
   const deleteProduto = () =>{
-    produtosService()
-    .delete()
-    .eq('id', id)
-    .then(status=>console.log(status))
-}
+     produtosService()
+     .delete()
+     .eq('id', id)
+     .then(status=>console.log(status))
+
+     setTimeout(() => {
+       window.location.reload(false);
+     }, 500);
+ }
   
   return (
     <div className="produto">
