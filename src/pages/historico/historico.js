@@ -6,7 +6,7 @@ import nodata from "../../assets/no-data.svg"
 import { useState } from "react";
 import { useEffect } from "react";
 import { produtosService } from "../../service/service";
-
+import { useForm } from "react-hook-form";
 
 const Historico = () => {
   const [dataProdutos, setDataProdutos] = useState([]);
@@ -72,6 +72,88 @@ export const Produto = ({ produto, preco,id }) => {
        window.location.reload(false);
      }, 500);
  }
+
+ const [editarModal, setEditarModal] = useState(false);
+
+ const EditModal = () => {
+  const { register, handleSubmit, reset } = useForm();
+
+  const editarProduto = (produtos) => {
+    produtosService()
+      .update({
+        produto: produtos.nome,
+        quantidade: produtos.quantidade,
+        preco: produtos.preco,
+      })
+      .eq('id', id )
+      .then((status) => {
+        console.log(status);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    reset();
+    setEditarModal(false)
+
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 500);
+
+  }
+
+  return (
+    <div className="modal-edit">
+      <div className="modal-edit-content">
+        <button
+          onClick={() => {
+            setTimeout(() => {
+              setEditarModal(false);
+            }, 400);
+          }}
+        >
+          <lord-icon
+            src="https://cdn.lordicon.com/nhfyhmlt.json"
+            trigger="hover"
+            colors="primary:#000000"
+            style={{ width: "32px", height: "32px" }}
+          ></lord-icon>
+        </button>
+        <form onSubmit={handleSubmit(editarProduto)}>
+          <h3>Registre um novo produto</h3>
+          <label htmlFor="nome">
+            <span>Nome do produto: </span>
+            <input
+              {...register("nome")}
+              type="text"
+              placeholder="nome do produto"
+            />
+          </label>
+          <label htmlFor="quantidade">
+            <span>Quantidade: </span>
+            <input
+              {...register("quantidade")}
+              type="number"
+              placeholder="quantidade em KG"
+            />
+          </label>
+          <label htmlFor="preco">
+            <span>Preço do produto: </span>
+            <input
+              {...register("preco")}
+              type="number"
+              step=".02"
+              placeholder="Preço do produto"
+            />
+          </label>
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
+    </div>
+  );
+ }
+
+
   
   return (
     <div className="produto">
@@ -86,18 +168,19 @@ export const Produto = ({ produto, preco,id }) => {
             src="https://cdn.lordicon.com/gsqxdxog.json"
             trigger="hover"
             colors="primary:#d8c200,secondary:#d8c250"
-            style={{ width: "32px", height: "32px"}}
+            style={{ width: "32px", height: "32px" }}
           ></lord-icon>
         </button>
-        {/* <button>
+        <button onClick={(()=>{setEditarModal(true)})}>
           <lord-icon
             src="https://cdn.lordicon.com/puvaffet.json"
             trigger="loop-on-hover"
             delay="2000"
-            colors="primary:#121331,secondary:#d8c200"
-            style={{width:"32px",height:"32px"}}
+            colors="primary:#d8c200,secondary:#d8c200"
+            style={{ width: "32px", height: "32px" }}
           ></lord-icon>
-        </button> */}
+        </button>
+        {editarModal && <EditModal></EditModal>}
       </div>
     </div>
   );
