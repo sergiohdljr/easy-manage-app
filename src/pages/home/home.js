@@ -103,7 +103,6 @@ const Modal = () => {
                 <input
                   {...register("preco")}
                   type="number"
-                  step=".02"
                   placeholder="Preço do produto"
                 />
               </label>

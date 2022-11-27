@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 
 const Historico = () => {
   const [dataProdutos, setDataProdutos] = useState([]);
+  const[busca,setBusca] = useState("")
 
   useEffect(() => {
     produtosService()
@@ -20,9 +21,22 @@ const Historico = () => {
      return (
       <div className="historico">
         <EasyManageLogo titulo="Histórico" />
+        <div className="search-bar">
+          <input type="text" 
+                 name="searchValue"
+                 placeholder="Procure o produto desejado"
+                 onChange={(e)=>{setBusca(e.target.value)}} value={busca}
+                  />
+                 <button>🔎</button>
+        </div>
         <div className="containerProdutos">
           {dataProdutos.length === 0 && <NoData></NoData>}
-          {dataProdutos.map((produto) => {
+          {dataProdutos
+          .filter((produto)=>{
+            const tituloNormalized = produto.produto.toLowerCase()
+            const buscaNormalized = busca.toLocaleLowerCase()
+           return tituloNormalized.includes(buscaNormalized)})
+          .map((produto) => {
           return (
             <Produto
               key={produto.id}
