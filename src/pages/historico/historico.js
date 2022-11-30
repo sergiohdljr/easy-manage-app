@@ -37,12 +37,14 @@ const Historico = () => {
             const buscaNormalized = busca.toLocaleLowerCase()
            return tituloNormalized.includes(buscaNormalized)})
           .map((produto) => {
+            const dataExata = produto.created_at.slice(0,10)
           return (
             <Produto
               key={produto.id}
               produto={produto.produto}
               preco={produto.preco}
               id={produto.id}
+              data={dataExata}
             />
           );
         })}
@@ -74,7 +76,7 @@ export const EasyManageLogo = ({ titulo }) => {
 
 // filtrar produtos
 
-export const Produto = ({ produto, preco,id }) => {
+export const Produto = ({ produto,preco,id,data }) => {
 
   const deleteProduto = () =>{
      produtosService()
@@ -167,34 +169,39 @@ export const Produto = ({ produto, preco,id }) => {
   );
  }
 
-
-  
   return (
-    <div className="produto">
-      <figure>
-        <img src={seta} alt="" srcSet="" />
-      </figure>
-      <div className="infos">
-        <h4 className="info-produto">{produto}</h4>
-        <h4 className="info-preco">R${preco}</h4>
-        <button onClick={deleteProduto}>
-          <lord-icon
-            src="https://cdn.lordicon.com/gsqxdxog.json"
-            trigger="hover"
-            colors="primary:#d8c200,secondary:#d8c250"
-            style={{ width: "32px", height: "32px" }}
-          ></lord-icon>
-        </button>
-        <button onClick={(()=>{setEditarModal(true)})}>
-          <lord-icon
-            src="https://cdn.lordicon.com/puvaffet.json"
-            trigger="loop-on-hover"
-            delay="2000"
-            colors="primary:#d8c200,secondary:#d8c200"
-            style={{ width: "32px", height: "32px" }}
-          ></lord-icon>
-        </button>
-        {editarModal && <EditModal></EditModal>}
+    <div className="produto-data">
+    <p>{data}</p>
+      <div className="produto">
+        <figure>
+          <img src={seta} alt="" srcSet="" />
+        </figure>
+        <div className="infos">
+          <h4 className="info-produto">{produto}</h4>
+          <h4 className="info-preco">R${preco}</h4>
+          <button onClick={deleteProduto}>
+            <lord-icon
+              src="https://cdn.lordicon.com/gsqxdxog.json"
+              trigger="hover"
+              colors="primary:#d8c200,secondary:#d8c250"
+              style={{ width: "32px", height: "32px" }}
+            ></lord-icon>
+          </button>
+          <button
+            onClick={() => {
+              setEditarModal(true);
+            }}
+          >
+            <lord-icon
+              src="https://cdn.lordicon.com/puvaffet.json"
+              trigger="loop-on-hover"
+              delay="2000"
+              colors="primary:#d8c200,secondary:#d8c200"
+              style={{ width: "32px", height: "32px" }}
+            ></lord-icon>
+          </button>
+          {editarModal && <EditModal></EditModal>}
+        </div>
       </div>
     </div>
   );

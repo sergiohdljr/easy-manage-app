@@ -4,7 +4,7 @@ import MenuBotton from "../../componentes/menuBotton/menu";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { produtosService } from "../../service/service";
-import { CardRelatorios } from "./cardRelatorios";
+import { CardRelatorios, ContainerRelatorios } from "./cardRelatorios";
 
 
 
@@ -14,7 +14,7 @@ const Home = () => {
       <MenuBotton></MenuBotton>
       <Header />
       <Modal></Modal>
-      <CardRelatorios></CardRelatorios>
+      <ContainerRelatorios></ContainerRelatorios>
     </div>
   );
 };

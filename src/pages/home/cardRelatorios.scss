@@ -1,6 +1,9 @@
 @import '../../App.scss';
 .container-card{
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
 }
 .card-relatorios{
     width: 250px;
