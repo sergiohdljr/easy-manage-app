@@ -49,6 +49,7 @@ const Historico = () => {
           );
         })}
         </div>
+        <span>{dataProdutos.length} produtos registrados</span>
         <MenuBotton />
       </div>
     );

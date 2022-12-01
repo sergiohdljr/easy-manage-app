@@ -5,7 +5,12 @@
     height: 100vh;
     background-color: $bg-color;
     overflow-y: auto;
-
+    
+    span{
+        padding-left: 5%;
+        color: $btn-amarelo-pp;
+    }
+    
     .search-bar{
         margin:0 auto;
         width: 70%;
