@@ -116,7 +116,13 @@
         }
 
         .info-preco{
-            @extend .info-produto;
+            color: $btn-amarelo-pp;
+            text-align: right;
+            margin-left: 0.3rem
+        }
+
+        .info-quantidade{
+            @extend .info-preco;
             text-align: right;
         }
 

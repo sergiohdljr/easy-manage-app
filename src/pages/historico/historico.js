@@ -45,6 +45,7 @@ const Historico = () => {
               preco={produto.preco}
               id={produto.id}
               data={dataExata}
+              quantidade={produto.quantidade}
             />
           );
         })}
@@ -75,9 +76,8 @@ export const EasyManageLogo = ({ titulo }) => {
   );
 };
 
-// filtrar produtos
 
-export const Produto = ({ produto,preco,id,data }) => {
+export const Produto = ({ produto,preco,id,data,quantidade }) => {
 
   const deleteProduto = () =>{
      produtosService()
@@ -180,6 +180,7 @@ export const Produto = ({ produto,preco,id,data }) => {
         <div className="infos">
           <h4 className="info-produto">{produto}</h4>
           <h4 className="info-preco">R${preco}</h4>
+          <h4 className="info-quantidade">Qtd. {quantidade}</h4>
           <button onClick={deleteProduto}>
             <lord-icon
               src="https://cdn.lordicon.com/gsqxdxog.json"
